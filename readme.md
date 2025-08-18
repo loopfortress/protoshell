@@ -38,6 +38,22 @@ export PROTOSHELL_CONFIG=/path/to/your/.protoshell.json
 protoshell
 ```
 
+### Initializing Configuration Files
+
+ProtoShell provides an `init` subcommand to help you create configuration files:
+
+```shell
+# Initialize a .protoshell.json file in the current directory
+protoshell init
+
+# Initialize a .autocompile.json file in the current directory
+protoshell init --project
+```
+
+The `init` command creates a template configuration file that you can customize for your project:
+- Without the `--project` flag, it creates a `.protoshell.json` file for global configuration
+- With the `--project` flag, it creates a `.autocompile.json` file for project-specific runner configuration
+
 ### Configuration Files
 
 ProtoShell requires two types of configuration files to function:
