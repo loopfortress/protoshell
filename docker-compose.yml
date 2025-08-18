@@ -1,0 +1,14 @@
+services:
+  protoshell:
+    image: loopfortress/node-devshell
+    container_name: protoshell
+    command: ["node", "$APP_HOME/bin/protoshell.js"]
+    working_dir: "$APP_HOME"
+    user: "${DEV_UID}:${DEV_GID}"
+    restart: no
+    environment:
+      PROTOSHELL_CONFIG: "$APP_HOME/.protoshell.json"
+      LOG_INFO: true
+      LOG_DEBUG: false
+    volumes:
+      - .:$APP_HOME:rw

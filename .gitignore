@@ -32,11 +32,6 @@ yarn.lock
 .pnpm-debug.log*
 .npm-cache/
 
-# Misc
-.env
-.env.*
-!.env.example
-
 # Compressed files
 *.7z
 *.zip
