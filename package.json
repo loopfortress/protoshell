@@ -1,0 +1,23 @@
+{
+  "name": "@loopfortress/protoshell",
+  "version": "0.1.0",
+  "description": "Watch and run commands for rapid prototyping",
+  "main": "index.js",
+  "type": "module",
+  "bin": "./bin/protoshell.js",
+  "scripts": {
+    "tsc": "tsc",
+    "proto": "./bin/protoshell.js"
+  },
+  "packageManager": "pnpm@10.13.1",
+  "dependencies": {
+    "@sinclair/typebox": "^0.34.39",
+    "chalk": "^5.5.0",
+    "chokidar": "^4.0.3",
+    "minimatch": "^10.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "typescript": "^5.9.2"
+  }
+}
