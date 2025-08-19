@@ -2,9 +2,18 @@
   "name": "@loopfortress/protoshell",
   "version": "0.1.0",
   "description": "Watch and run commands for rapid prototyping",
+  "author": {
+    "name": "dennouroll"
+  },
+  "license": "MIT",
   "main": "index.js",
   "type": "module",
-  "bin": "./bin/protoshell.js",
+  "bin": {
+    "protoshell": "bin/protoshell.js"
+  },
+  "repository": {
+    "url": "git+https://github.com/loopfortress/protoshell.git"
+  },
   "scripts": {
     "tsc": "tsc",
     "proto": "./bin/protoshell.js"
