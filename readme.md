@@ -1,5 +1,5 @@
 # Loop ProtoShell
-===============
+=================
 
 ProtoShell is a lightweight command-line utility designed to enhance your development workflow by watching file changes and running user-defined commands.
 It is particularly useful for projects with multiple roots, such as monorepos, where managing file watchers and build steps can quickly become complicated.
@@ -139,6 +139,47 @@ By running `protoshell`, ProtoShell will automatically watch the files and trigg
 
 - `LOG_INFO`: `"true"`|`"false"` (Default: `true`) Disable or enable info level logs.
 - `LOG_DEBUG`: `"true"`|`"false"` (Default: `true`) Disable or enable debug logs.
+
+## Using with docker
+
+ProtoShell is also released on docker hub as a standalone docker image: `loopfortress/node-protoshell`.
+
+```yaml
+protoshell:
+  image: loopfortress/node-protoshell
+  container_name: protoshell
+  working_dir: "/app"
+  user: "${DEV_UID}:${DEV_GID}"
+  restart: no
+  environment:
+    PROTOSHELL_CONFIG: "/app/.protoshell.json"
+    LOG_INFO: true
+    LOG_DEBUG: true
+  volumes:
+    - .:/app:rw
+```
+
+You can drop it in any code base, set up runner configs and just run the container.
+
+```shell
+docker compose run -it --rm protoshell
+```
+
+**Mounts and user ids**
+
+The image is based on a rootless nodejs runtime, so you'll have to provide user mapping for docker.
+If your user id on your host machine matches the rootless user inside, file permissions may broke on the mounted source code.
+So remember to set this in your docker compose:
+
+```
+user: "${DEV_UID}:${DEV_GID}"
+```
+
+You need to have these in your env: `DEV_UID` and `DEV_GID`. Or just simply provide your user and group id by hand.
+
+```
+user: "1000:1000"
+```
 
 ## Contributing
 
